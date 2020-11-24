@@ -1,0 +1,61 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/character/person-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/character/person-2.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/character/person-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/character/person-4.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/character/person-5.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/character/person-6.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/character/person-7.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/character/person-8.png" type="Texture" id=9]
+[ext_resource path="res://assets/img/character/person-9.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/character/person-10.png" type="Texture" id=11]
+[ext_resource path="res://assets/img/character/person-11.png" type="Texture" id=12]
+[ext_resource path="res://assets/img/character/person-12.png" type="Texture" id=13]
+[ext_resource path="res://assets/img/character/person-13.png" type="Texture" id=14]
+[ext_resource path="res://assets/img/character/person-14.png" type="Texture" id=15]
+[ext_resource path="res://assets/img/character/person-15.png" type="Texture" id=16]
+[ext_resource path="res://assets/img/character/person-16.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "idle",
+"speed": 22.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 20.103
+height = 31.7064
+
+[node name="player" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="character" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "walk"
+frame = 9
+playing = true
+
+[node name="shape" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -7.48215, 0.880249 )
+shape = SubResource( 2 )
+
+
